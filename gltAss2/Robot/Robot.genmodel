@@ -60,7 +60,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//IfStatement/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//IfStatement/body"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Robot.ecore#//Expression"/>
+    <genClasses image="false" ecoreClass="Robot.ecore#//Expressio"/>
     <genClasses ecoreClass="Robot.ecore#//Full"/>
     <genClasses ecoreClass="Robot.ecore#//Mark"/>
     <genClasses ecoreClass="Robot.ecore#//Ahead"/>

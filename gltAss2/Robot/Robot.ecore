@@ -54,20 +54,21 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Full" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mark" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Ahead" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Heading" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Atomic" abstract="true" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Full" eSuperTypes="#//Atomic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mark" eSuperTypes="#//Atomic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ahead" eSuperTypes="#//Atomic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Heading" eSuperTypes="#//Atomic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wind" lowerBound="1" eType="#//Orientation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="a" lowerBound="1" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="a" lowerBound="1" eType="#//Atomic"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="b" lowerBound="1" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="e" lowerBound="1" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="e" lowerBound="1" eType="#//Atomic"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Orientation">

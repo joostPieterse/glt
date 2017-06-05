@@ -14,8 +14,11 @@ Statement returns Statement:
 	Comment | Singleton | Trace | BuildWall | DropMark | WhileStatement | RepeatStatement | IfElseStatement | IfStatement;
 
 
+Atomic returns Atomic:
+	Full | Mark | Ahead | Heading | Not;
+	
 Expression returns Expression:
-	Full | Mark | Ahead | Heading | And | Not;
+	And;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -83,7 +86,8 @@ Heading returns Heading:
 	'heading' wind=Orientation;
 
 And returns And:
-	a=Expression 'and' b=Expression;
+	a=Atomic ('and' b=Expression)?;
+	
 
 Not returns Not:
 	'not' e=Expression;
