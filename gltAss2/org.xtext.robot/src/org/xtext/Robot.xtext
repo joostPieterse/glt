@@ -18,7 +18,7 @@ Atomic returns Atomic:
 	Full | Mark | Ahead | Heading | Not;
 	
 Expression returns Expression:
-	And;
+	Atomic|And;
 
 EString returns ecore::EString:
 	STRING | ID;
