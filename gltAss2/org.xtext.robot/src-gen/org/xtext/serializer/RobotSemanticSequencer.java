@@ -105,7 +105,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Ahead
+	 *     Atomic returns Ahead
 	 *     Ahead returns Ahead
 	 *
 	 * Constraint:
@@ -122,19 +122,10 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     And returns And
 	 *
 	 * Constraint:
-	 *     (a=Expression b=Expression)
+	 *     (a=Atomic b=Expression?)
 	 */
 	protected void sequence_And(ISerializationContext context, And semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimplerobotPackage.Literals.AND__A) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.AND__A));
-			if (transientValues.isValueTransient(semanticObject, SimplerobotPackage.Literals.AND__B) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.AND__B));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAndAccess().getAExpressionParserRuleCall_3_0(), semanticObject.getA());
-		feeder.accept(grammarAccess.getAndAccess().getBExpressionParserRuleCall_5_0(), semanticObject.getB());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -174,7 +165,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.COMMENT__COMMENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommentAccess().getCommentEStringParserRuleCall_3_0(), semanticObject.getComment());
+		feeder.accept(grammarAccess.getCommentAccess().getCommentEStringParserRuleCall_1_0(), semanticObject.getComment());
 		feeder.finish();
 	}
 	
@@ -203,7 +194,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Full
+	 *     Atomic returns Full
 	 *     Full returns Full
 	 *
 	 * Constraint:
@@ -216,7 +207,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Heading
+	 *     Atomic returns Heading
 	 *     Heading returns Heading
 	 *
 	 * Constraint:
@@ -228,7 +219,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.HEADING__WIND));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getHeadingAccess().getWindOrientationEnumRuleCall_3_0(), semanticObject.getWind());
+		feeder.accept(grammarAccess.getHeadingAccess().getWindOrientationEnumRuleCall_1_0(), semanticObject.getWind());
 		feeder.finish();
 	}
 	
@@ -248,7 +239,6 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Statement returns IfStatement
 	 *     IfStatement returns IfStatement
 	 *
 	 * Constraint:
@@ -261,7 +251,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Mark
+	 *     Atomic returns Mark
 	 *     Mark returns Mark
 	 *
 	 * Constraint:
@@ -274,11 +264,11 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Not
+	 *     Atomic returns Not
 	 *     Not returns Not
 	 *
 	 * Constraint:
-	 *     e=Expression
+	 *     e=Atomic
 	 */
 	protected void sequence_Not(ISerializationContext context, Not semanticObject) {
 		if (errorAcceptor != null) {
@@ -286,7 +276,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.NOT__E));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNotAccess().getEExpressionParserRuleCall_3_0(), semanticObject.getE());
+		feeder.accept(grammarAccess.getNotAccess().getEAtomicParserRuleCall_1_0(), semanticObject.getE());
 		feeder.finish();
 	}
 	
@@ -330,7 +320,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.SINGLETON__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSingletonAccess().getTypeSingletonTypesEnumRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getSingletonAccess().getTypeSingletonTypesEnumRuleCall_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -348,7 +338,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.STRING__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getString0Access().getTextEStringParserRuleCall_3_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getString0Access().getTextEStringParserRuleCall_1_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	
@@ -359,10 +349,16 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Trace returns Trace
 	 *
 	 * Constraint:
-	 *     text=String0?
+	 *     text=String0
 	 */
 	protected void sequence_Trace(ISerializationContext context, Trace semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SimplerobotPackage.Literals.TRACE__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.TRACE__TEXT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTraceAccess().getTextString0ParserRuleCall_2_0(), semanticObject.getText());
+		feeder.finish();
 	}
 	
 	

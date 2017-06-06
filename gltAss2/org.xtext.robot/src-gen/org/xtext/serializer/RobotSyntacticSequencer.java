@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.services.RobotGrammarAccess;
@@ -18,10 +21,50 @@ import org.xtext.services.RobotGrammarAccess;
 public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RobotGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_And_AndKeyword_1_0_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_3_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_1_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_2_1_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_1_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_2_1_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_2_2_1_q;
+	protected AbstractElementAlias match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q;
+	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_3_q;
+	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_4_1_q;
+	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_4_2_1_q;
+	protected AbstractElementAlias match_RepeatStatement_LineFeedKeyword_3_q;
+	protected AbstractElementAlias match_RepeatStatement_LineFeedKeyword_4_1_q;
+	protected AbstractElementAlias match_RepeatStatement_LineFeedKeyword_4_2_1_q;
+	protected AbstractElementAlias match_Robot_LineFeedKeyword_5_q;
+	protected AbstractElementAlias match_Robot_LineFeedKeyword_6_1_q;
+	protected AbstractElementAlias match_Robot_LineFeedKeyword_6_2_1_q;
+	protected AbstractElementAlias match_WhileStatement_LineFeedKeyword_3_q;
+	protected AbstractElementAlias match_WhileStatement_LineFeedKeyword_4_1_q;
+	protected AbstractElementAlias match_WhileStatement_LineFeedKeyword_4_2_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RobotGrammarAccess) access;
+		match_And_AndKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getAndAccess().getAndKeyword_1_0());
+		match_IfElseStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_3());
+		match_IfElseStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_1());
+		match_IfElseStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_2_1());
+		match_IfElseStatement_LineFeedKeyword_5_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_1());
+		match_IfElseStatement_LineFeedKeyword_5_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2_1());
+		match_IfElseStatement_LineFeedKeyword_5_2_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2_2_1());
+		match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfElseStatementAccess().getElseKeyword_5_0()), new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_1()));
+		match_IfStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_3());
+		match_IfStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_4_1());
+		match_IfStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_4_2_1());
+		match_RepeatStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getRepeatStatementAccess().getLineFeedKeyword_3());
+		match_RepeatStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getRepeatStatementAccess().getLineFeedKeyword_4_1());
+		match_RepeatStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getRepeatStatementAccess().getLineFeedKeyword_4_2_1());
+		match_Robot_LineFeedKeyword_5_q = new TokenAlias(false, true, grammarAccess.getRobotAccess().getLineFeedKeyword_5());
+		match_Robot_LineFeedKeyword_6_1_q = new TokenAlias(false, true, grammarAccess.getRobotAccess().getLineFeedKeyword_6_1());
+		match_Robot_LineFeedKeyword_6_2_1_q = new TokenAlias(false, true, grammarAccess.getRobotAccess().getLineFeedKeyword_6_2_1());
+		match_WhileStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getWhileStatementAccess().getLineFeedKeyword_3());
+		match_WhileStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getWhileStatementAccess().getLineFeedKeyword_4_1());
+		match_WhileStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getWhileStatementAccess().getLineFeedKeyword_4_2_1());
 	}
 	
 	@Override
@@ -36,8 +79,395 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_And_AndKeyword_1_0_q.equals(syntax))
+				emit_And_AndKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_3_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_4_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_4_2_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_4_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_2_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_2_2_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_2_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q.equals(syntax))
+				emit_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfStatement_LineFeedKeyword_3_q.equals(syntax))
+				emit_IfStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfStatement_LineFeedKeyword_4_1_q.equals(syntax))
+				emit_IfStatement_LineFeedKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfStatement_LineFeedKeyword_4_2_1_q.equals(syntax))
+				emit_IfStatement_LineFeedKeyword_4_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RepeatStatement_LineFeedKeyword_3_q.equals(syntax))
+				emit_RepeatStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RepeatStatement_LineFeedKeyword_4_1_q.equals(syntax))
+				emit_RepeatStatement_LineFeedKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RepeatStatement_LineFeedKeyword_4_2_1_q.equals(syntax))
+				emit_RepeatStatement_LineFeedKeyword_4_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Robot_LineFeedKeyword_5_q.equals(syntax))
+				emit_Robot_LineFeedKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Robot_LineFeedKeyword_6_1_q.equals(syntax))
+				emit_Robot_LineFeedKeyword_6_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Robot_LineFeedKeyword_6_2_1_q.equals(syntax))
+				emit_Robot_LineFeedKeyword_6_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_WhileStatement_LineFeedKeyword_3_q.equals(syntax))
+				emit_WhileStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_WhileStatement_LineFeedKeyword_4_1_q.equals(syntax))
+				emit_WhileStatement_LineFeedKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_WhileStatement_LineFeedKeyword_4_2_1_q.equals(syntax))
+				emit_WhileStatement_LineFeedKeyword_4_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'and'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     a=Atomic (ambiguity) (rule end)
+	 */
+	protected void emit_And_AndKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         cond=Expression 
+	 *         'then' 
+	 *         (ambiguity) 
+	 *         'else' 
+	 *         '
+	 *         '? 
+	 *         elsebody+=Statement
+	 *     )
+	 *     (
+	 *         cond=Expression 
+	 *         'then' 
+	 *         (ambiguity) 
+	 *         (
+	 *             'else' 
+	 *             '
+	 *             '?
+	 *         )? 
+	 *         'end' 
+	 *         (rule end)
+	 *     )
+	 *     cond=Expression 'then' (ambiguity) ifbody+=Statement
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         ifbody+=Statement 
+	 *         (ambiguity) 
+	 *         'else' 
+	 *         '
+	 *         '? 
+	 *         elsebody+=Statement
+	 *     )
+	 *     (
+	 *         ifbody+=Statement 
+	 *         (ambiguity) 
+	 *         (
+	 *             'else' 
+	 *             '
+	 *             '?
+	 *         )? 
+	 *         'end' 
+	 *         (rule end)
+	 *     )
+	 *     ifbody+=Statement (ambiguity) ifbody+=Statement
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         ifbody+=Statement 
+	 *         (ambiguity) 
+	 *         'else' 
+	 *         '
+	 *         '? 
+	 *         elsebody+=Statement
+	 *     )
+	 *     (
+	 *         ifbody+=Statement 
+	 *         (ambiguity) 
+	 *         (
+	 *             'else' 
+	 *             '
+	 *             '?
+	 *         )? 
+	 *         'end' 
+	 *         (rule end)
+	 *     )
+	 *     ifbody+=Statement (ambiguity) ifbody+=Statement
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_4_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         cond=Expression 
+	 *         'then' 
+	 *         '
+	 *         '? 
+	 *         'else' 
+	 *         (ambiguity) 
+	 *         elsebody+=Statement
+	 *     )
+	 *     (
+	 *         ifbody+=Statement 
+	 *         '
+	 *         '? 
+	 *         'else' 
+	 *         (ambiguity) 
+	 *         elsebody+=Statement
+	 *     )
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elsebody+=Statement (ambiguity) 'end' (rule end)
+	 *     elsebody+=Statement (ambiguity) elsebody+=Statement
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_5_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elsebody+=Statement (ambiguity) 'end' (rule end)
+	 *     elsebody+=Statement (ambiguity) elsebody+=Statement
+	 */
+	protected void emit_IfElseStatement_LineFeedKeyword_5_2_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         'else' 
+	  *         '
+	  *         '?
+	  *     )?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         cond=Expression 
+	 *         'then' 
+	 *         '
+	 *         '? 
+	 *         (ambiguity) 
+	 *         'end' 
+	 *         (rule end)
+	 *     )
+	 *     (
+	 *         ifbody+=Statement 
+	 *         '
+	 *         '? 
+	 *         (ambiguity) 
+	 *         'end' 
+	 *         (rule end)
+	 *     )
+	 */
+	protected void emit_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     cond=Expression 'then' (ambiguity) 'end' (rule end)
+	 *     cond=Expression 'then' (ambiguity) body+=Statement
+	 */
+	protected void emit_IfStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_IfStatement_LineFeedKeyword_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_IfStatement_LineFeedKeyword_4_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     times=EInt 'times' (ambiguity) 'end' (rule end)
+	 *     times=EInt 'times' (ambiguity) body+=Statement
+	 */
+	protected void emit_RepeatStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_RepeatStatement_LineFeedKeyword_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_RepeatStatement_LineFeedKeyword_4_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString 'runs' 'as' (ambiguity) 'end' (rule end)
+	 *     name=EString 'runs' 'as' (ambiguity) statements+=Statement
+	 */
+	protected void emit_Robot_LineFeedKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     statements+=Statement (ambiguity) 'end' (rule end)
+	 *     statements+=Statement (ambiguity) statements+=Statement
+	 */
+	protected void emit_Robot_LineFeedKeyword_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     statements+=Statement (ambiguity) 'end' (rule end)
+	 *     statements+=Statement (ambiguity) statements+=Statement
+	 */
+	protected void emit_Robot_LineFeedKeyword_6_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     cond=Expression 'do' (ambiguity) 'end' (rule end)
+	 *     cond=Expression 'do' (ambiguity) body+=Statement
+	 */
+	protected void emit_WhileStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_WhileStatement_LineFeedKeyword_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     body+=Statement (ambiguity) 'end' (rule end)
+	 *     body+=Statement (ambiguity) body+=Statement
+	 */
+	protected void emit_WhileStatement_LineFeedKeyword_4_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

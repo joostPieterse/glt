@@ -64,10 +64,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="a" lowerBound="1" eType="#//Atomic"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="b" lowerBound="1" eType="#//Expression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b" eType="#//Expression"
+        unsettable="true" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Atomic">
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" lowerBound="1" eType="#//Atomic"
         containment="true"/>
   </eClassifiers>
