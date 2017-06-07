@@ -9,7 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import simplerobot.SimplerobotPackage;
 
@@ -26,7 +26,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class StringImpl extends MinimalEObjectImpl.Container implements simplerobot.String {
+public class StringImpl extends EObjectImpl implements simplerobot.String {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->

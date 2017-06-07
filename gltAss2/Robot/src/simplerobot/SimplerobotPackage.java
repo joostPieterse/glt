@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -98,15 +97,6 @@ public interface SimplerobotPackage extends EPackage {
 	int ROBOT_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Robot</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROBOT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.StatementImpl <em>Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,15 +114,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATEMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.CommandImpl <em>Command</em>}' class.
@@ -154,15 +135,6 @@ public interface SimplerobotPackage extends EPackage {
 	int COMMAND_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Command</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMAND_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.CommentImpl <em>Comment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,31 +145,13 @@ public interface SimplerobotPackage extends EPackage {
 	int COMMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Comment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMENT__COMMENT = COMMAND_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Comment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMENT_OPERATION_COUNT = COMMAND_OPERATION_COUNT + 0;
+	int COMMENT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.SingletonImpl <em>Singleton</em>}' class.
@@ -228,15 +182,6 @@ public interface SimplerobotPackage extends EPackage {
 	int SINGLETON_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Singleton</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLETON_OPERATION_COUNT = COMMAND_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.TraceImpl <em>Trace</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,7 +192,7 @@ public interface SimplerobotPackage extends EPackage {
 	int TRACE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' containment reference.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,15 +208,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Trace</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_OPERATION_COUNT = COMMAND_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.BuildWallImpl <em>Build Wall</em>}' class.
@@ -311,15 +247,6 @@ public interface SimplerobotPackage extends EPackage {
 	int BUILD_WALL_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Build Wall</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_WALL_OPERATION_COUNT = COMMAND_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.DropMarkImpl <em>Drop Mark</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,15 +282,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @ordered
 	 */
 	int DROP_MARK_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Drop Mark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_MARK_OPERATION_COUNT = COMMAND_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.WhileStatementImpl <em>While Statement</em>}' class.
@@ -403,15 +321,6 @@ public interface SimplerobotPackage extends EPackage {
 	int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>While Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.RepeatStatementImpl <em>Repeat Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -447,15 +356,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPEAT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Repeat Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPEAT_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.IfElseStatementImpl <em>If Else Statement</em>}' class.
@@ -504,15 +404,6 @@ public interface SimplerobotPackage extends EPackage {
 	int IF_ELSE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>If Else Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_ELSE_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.IfStatementImpl <em>If Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,15 +441,6 @@ public interface SimplerobotPackage extends EPackage {
 	int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>If Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simplerobot.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -569,22 +451,50 @@ public interface SimplerobotPackage extends EPackage {
 	int EXPRESSION = 12;
 
 	/**
+	 * The feature id for the '<em><b>A</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__A = 0;
+
+	/**
+	 * The feature id for the '<em><b>B</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__B = 1;
+
+	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 0;
+	int EXPRESSION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Expression</em>' class.
+	 * The meta object id for the '{@link simplerobot.impl.AtomicImpl <em>Atomic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simplerobot.impl.AtomicImpl
+	 * @see simplerobot.impl.SimplerobotPackageImpl#getAtomic()
+	 * @generated
+	 */
+	int ATOMIC = 13;
+
+	/**
+	 * The number of structural features of the '<em>Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = 0;
+	int ATOMIC_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.FullImpl <em>Full</em>}' class.
@@ -594,7 +504,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @see simplerobot.impl.SimplerobotPackageImpl#getFull()
 	 * @generated
 	 */
-	int FULL = 13;
+	int FULL = 14;
 
 	/**
 	 * The number of structural features of the '<em>Full</em>' class.
@@ -603,16 +513,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FULL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Full</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FULL_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int FULL_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.MarkImpl <em>Mark</em>}' class.
@@ -622,7 +523,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @see simplerobot.impl.SimplerobotPackageImpl#getMark()
 	 * @generated
 	 */
-	int MARK = 14;
+	int MARK = 15;
 
 	/**
 	 * The number of structural features of the '<em>Mark</em>' class.
@@ -631,16 +532,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARK_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Mark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int MARK_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.AheadImpl <em>Ahead</em>}' class.
@@ -650,7 +542,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @see simplerobot.impl.SimplerobotPackageImpl#getAhead()
 	 * @generated
 	 */
-	int AHEAD = 15;
+	int AHEAD = 16;
 
 	/**
 	 * The number of structural features of the '<em>Ahead</em>' class.
@@ -659,16 +551,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AHEAD_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Ahead</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AHEAD_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int AHEAD_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.HeadingImpl <em>Heading</em>}' class.
@@ -678,7 +561,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @see simplerobot.impl.SimplerobotPackageImpl#getHeading()
 	 * @generated
 	 */
-	int HEADING = 16;
+	int HEADING = 17;
 
 	/**
 	 * The feature id for the '<em><b>Wind</b></em>' attribute.
@@ -687,7 +570,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADING__WIND = EXPRESSION_FEATURE_COUNT + 0;
+	int HEADING__WIND = ATOMIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Heading</em>' class.
@@ -696,62 +579,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Heading</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADING_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link simplerobot.impl.AndImpl <em>And</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see simplerobot.impl.AndImpl
-	 * @see simplerobot.impl.SimplerobotPackageImpl#getAnd()
-	 * @generated
-	 */
-	int AND = 17;
-
-	/**
-	 * The feature id for the '<em><b>A</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND__A = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>B</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND__B = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>And</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>And</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int HEADING_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.NotImpl <em>Not</em>}' class.
@@ -770,7 +598,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__E = EXPRESSION_FEATURE_COUNT + 0;
+	int NOT__E = ATOMIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Not</em>' class.
@@ -779,16 +607,7 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Not</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int NOT_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.impl.StringImpl <em>String</em>}' class.
@@ -817,15 +636,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link simplerobot.Orientation <em>Orientation</em>}' enum.
@@ -941,17 +751,6 @@ public interface SimplerobotPackage extends EPackage {
 	EClass getComment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link simplerobot.Comment#getComment <em>Comment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Comment</em>'.
-	 * @see simplerobot.Comment#getComment()
-	 * @see #getComment()
-	 * @generated
-	 */
-	EAttribute getComment_Comment();
-
-	/**
 	 * Returns the meta object for class '{@link simplerobot.Singleton <em>Singleton</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -983,15 +782,15 @@ public interface SimplerobotPackage extends EPackage {
 	EClass getTrace();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link simplerobot.Trace#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute '{@link simplerobot.Trace#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Text</em>'.
+	 * @return the meta object for the attribute '<em>Text</em>'.
 	 * @see simplerobot.Trace#getText()
 	 * @see #getTrace()
 	 * @generated
 	 */
-	EReference getTrace_Text();
+	EAttribute getTrace_Text();
 
 	/**
 	 * Returns the meta object for class '{@link simplerobot.BuildWall <em>Build Wall</em>}'.
@@ -1207,6 +1006,38 @@ public interface SimplerobotPackage extends EPackage {
 	EClass getExpression();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link simplerobot.Expression#getA <em>A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>A</em>'.
+	 * @see simplerobot.Expression#getA()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EReference getExpression_A();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link simplerobot.Expression#getB <em>B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>B</em>'.
+	 * @see simplerobot.Expression#getB()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EReference getExpression_B();
+
+	/**
+	 * Returns the meta object for class '{@link simplerobot.Atomic <em>Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Atomic</em>'.
+	 * @see simplerobot.Atomic
+	 * @generated
+	 */
+	EClass getAtomic();
+
+	/**
 	 * Returns the meta object for class '{@link simplerobot.Full <em>Full</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,38 +1087,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHeading_Wind();
-
-	/**
-	 * Returns the meta object for class '{@link simplerobot.And <em>And</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>And</em>'.
-	 * @see simplerobot.And
-	 * @generated
-	 */
-	EClass getAnd();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link simplerobot.And#getA <em>A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>A</em>'.
-	 * @see simplerobot.And#getA()
-	 * @see #getAnd()
-	 * @generated
-	 */
-	EReference getAnd_A();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link simplerobot.And#getB <em>B</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>B</em>'.
-	 * @see simplerobot.And#getB()
-	 * @see #getAnd()
-	 * @generated
-	 */
-	EReference getAnd_B();
 
 	/**
 	 * Returns the meta object for class '{@link simplerobot.Not <em>Not</em>}'.
@@ -1399,7 +1198,6 @@ public interface SimplerobotPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -1464,14 +1262,6 @@ public interface SimplerobotPackage extends EPackage {
 		EClass COMMENT = eINSTANCE.getComment();
 
 		/**
-		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMMENT__COMMENT = eINSTANCE.getComment_Comment();
-
-		/**
 		 * The meta object literal for the '{@link simplerobot.impl.SingletonImpl <em>Singleton</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1500,12 +1290,12 @@ public interface SimplerobotPackage extends EPackage {
 		EClass TRACE = eINSTANCE.getTrace();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACE__TEXT = eINSTANCE.getTrace_Text();
+		EAttribute TRACE__TEXT = eINSTANCE.getTrace_Text();
 
 		/**
 		 * The meta object literal for the '{@link simplerobot.impl.BuildWallImpl <em>Build Wall</em>}' class.
@@ -1682,6 +1472,32 @@ public interface SimplerobotPackage extends EPackage {
 		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
+		 * The meta object literal for the '<em><b>A</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPRESSION__A = eINSTANCE.getExpression_A();
+
+		/**
+		 * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPRESSION__B = eINSTANCE.getExpression_B();
+
+		/**
+		 * The meta object literal for the '{@link simplerobot.impl.AtomicImpl <em>Atomic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simplerobot.impl.AtomicImpl
+		 * @see simplerobot.impl.SimplerobotPackageImpl#getAtomic()
+		 * @generated
+		 */
+		EClass ATOMIC = eINSTANCE.getAtomic();
+
+		/**
 		 * The meta object literal for the '{@link simplerobot.impl.FullImpl <em>Full</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1728,32 +1544,6 @@ public interface SimplerobotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HEADING__WIND = eINSTANCE.getHeading_Wind();
-
-		/**
-		 * The meta object literal for the '{@link simplerobot.impl.AndImpl <em>And</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see simplerobot.impl.AndImpl
-		 * @see simplerobot.impl.SimplerobotPackageImpl#getAnd()
-		 * @generated
-		 */
-		EClass AND = eINSTANCE.getAnd();
-
-		/**
-		 * The meta object literal for the '<em><b>A</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AND__A = eINSTANCE.getAnd_A();
-
-		/**
-		 * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AND__B = eINSTANCE.getAnd_B();
 
 		/**
 		 * The meta object literal for the '{@link simplerobot.impl.NotImpl <em>Not</em>}' class.

@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import simplerobot.Ahead;
-import simplerobot.And;
 import simplerobot.BuildWall;
 import simplerobot.Comment;
 import simplerobot.DropMark;
+import simplerobot.Expression;
 import simplerobot.Full;
 import simplerobot.Heading;
 import simplerobot.IfElseStatement;
@@ -86,11 +86,11 @@ public class SimplerobotFactoryImpl extends EFactoryImpl implements SimplerobotF
 			case SimplerobotPackage.REPEAT_STATEMENT: return createRepeatStatement();
 			case SimplerobotPackage.IF_ELSE_STATEMENT: return createIfElseStatement();
 			case SimplerobotPackage.IF_STATEMENT: return createIfStatement();
+			case SimplerobotPackage.EXPRESSION: return createExpression();
 			case SimplerobotPackage.FULL: return createFull();
 			case SimplerobotPackage.MARK: return createMark();
 			case SimplerobotPackage.AHEAD: return createAhead();
 			case SimplerobotPackage.HEADING: return createHeading();
-			case SimplerobotPackage.AND: return createAnd();
 			case SimplerobotPackage.NOT: return createNot();
 			case SimplerobotPackage.STRING: return createString();
 			default:
@@ -249,6 +249,16 @@ public class SimplerobotFactoryImpl extends EFactoryImpl implements SimplerobotF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Expression createExpression() {
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Full createFull() {
 		FullImpl full = new FullImpl();
 		return full;
@@ -282,16 +292,6 @@ public class SimplerobotFactoryImpl extends EFactoryImpl implements SimplerobotF
 	public Heading createHeading() {
 		HeadingImpl heading = new HeadingImpl();
 		return heading;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public And createAnd() {
-		AndImpl and = new AndImpl();
-		return and;
 	}
 
 	/**

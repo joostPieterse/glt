@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,7 +22,7 @@ import org.xtext.services.RobotGrammarAccess;
 public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RobotGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_And_AndKeyword_1_0_q;
+	protected AbstractElementAlias match_Expression_AndKeyword_2_0_0_or_OrKeyword_2_0_1;
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_3_q;
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_1_q;
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_2_1_q;
@@ -45,7 +46,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RobotGrammarAccess) access;
-		match_And_AndKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getAndAccess().getAndKeyword_1_0());
+		match_Expression_AndKeyword_2_0_0_or_OrKeyword_2_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExpressionAccess().getAndKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getExpressionAccess().getOrKeyword_2_0_1()));
 		match_IfElseStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_3());
 		match_IfElseStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_1());
 		match_IfElseStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_2_1());
@@ -69,9 +70,19 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getCOMMENTTEXTRule())
+			return getCOMMENTTEXTToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal COMMENTTEXT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
+	 */
+	protected String getCOMMENTTEXTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -79,8 +90,8 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_And_AndKeyword_1_0_q.equals(syntax))
-				emit_And_AndKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Expression_AndKeyword_2_0_0_or_OrKeyword_2_0_1.equals(syntax))
+				emit_Expression_AndKeyword_2_0_0_or_OrKeyword_2_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfElseStatement_LineFeedKeyword_3_q.equals(syntax))
 				emit_IfElseStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfElseStatement_LineFeedKeyword_4_1_q.equals(syntax))
@@ -125,12 +136,12 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     'and'?
+	 *     'and' | 'or'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     a=Atomic (ambiguity) (rule end)
+	 *     a=Atomic (ambiguity) b=Expression
 	 */
-	protected void emit_And_AndKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Expression_AndKeyword_2_0_0_or_OrKeyword_2_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -142,7 +153,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (
 	 *         cond=Expression 
-	 *         'then' 
+	 *         'do' 
 	 *         (ambiguity) 
 	 *         'else' 
 	 *         '
@@ -151,7 +162,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     )
 	 *     (
 	 *         cond=Expression 
-	 *         'then' 
+	 *         'do' 
 	 *         (ambiguity) 
 	 *         (
 	 *             'else' 
@@ -161,7 +172,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         'end' 
 	 *         (rule end)
 	 *     )
-	 *     cond=Expression 'then' (ambiguity) ifbody+=Statement
+	 *     cond=Expression 'do' (ambiguity) ifbody+=Statement
 	 */
 	protected void emit_IfElseStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -237,7 +248,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (
 	 *         cond=Expression 
-	 *         'then' 
+	 *         'do' 
 	 *         '
 	 *         '? 
 	 *         'else' 
@@ -294,7 +305,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (
 	 *         cond=Expression 
-	 *         'then' 
+	 *         'do' 
 	 *         '
 	 *         '? 
 	 *         (ambiguity) 
@@ -320,8 +331,8 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	  *     '?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     cond=Expression 'then' (ambiguity) 'end' (rule end)
-	 *     cond=Expression 'then' (ambiguity) body+=Statement
+	 *     cond=Expression 'do' (ambiguity) 'end' (rule end)
+	 *     cond=Expression 'do' (ambiguity) body+=Statement
 	 */
 	protected void emit_IfStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

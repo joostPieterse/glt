@@ -24,7 +24,7 @@ import simplerobot.SimplerobotPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HeadingItemProvider extends ExpressionItemProvider {
+public class HeadingItemProvider extends AtomicItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

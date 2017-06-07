@@ -10,9 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import simplerobot.Not;
 import simplerobot.SimplerobotFactory;
 import simplerobot.SimplerobotPackage;
@@ -23,7 +24,7 @@ import simplerobot.SimplerobotPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotItemProvider extends ExpressionItemProvider {
+public class NotItemProvider extends AtomicItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -151,11 +152,6 @@ public class NotItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(SimplerobotPackage.Literals.NOT__E,
 				 SimplerobotFactory.eINSTANCE.createHeading()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.NOT__E,
-				 SimplerobotFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter

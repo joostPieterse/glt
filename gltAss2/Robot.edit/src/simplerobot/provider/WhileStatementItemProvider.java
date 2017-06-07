@@ -10,9 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import simplerobot.SimplerobotFactory;
 import simplerobot.SimplerobotPackage;
 import simplerobot.WhileStatement;
@@ -137,32 +138,7 @@ public class WhileStatementItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createFull()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createMark()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createAhead()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createHeading()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createAnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplerobotPackage.Literals.WHILE_STATEMENT__COND,
-				 SimplerobotFactory.eINSTANCE.createNot()));
+				 SimplerobotFactory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -19,7 +19,7 @@ package simplerobot;
  * @model
  * @generated
  */
-public interface Heading extends Expression {
+public interface Heading extends Atomic {
 	/**
 	 * Returns the value of the '<em><b>Wind</b></em>' attribute.
 	 * The literals are from the enumeration {@link simplerobot.Orientation}.

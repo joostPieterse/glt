@@ -11,13 +11,15 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import simplerobot.SimplerobotPackage;
+
 /**
  * This is the item provider adapter for a {@link simplerobot.Mark} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MarkItemProvider extends ExpressionItemProvider {
+public class MarkItemProvider extends AtomicItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -151,7 +151,7 @@ public class StringItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RobotEditPlugin.INSTANCE;
+		return SimplerobotEditPlugin.INSTANCE;
 	}
 
 }

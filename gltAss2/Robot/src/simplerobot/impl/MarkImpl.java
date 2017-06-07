@@ -14,7 +14,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class MarkImpl extends ExpressionImpl implements Mark {
+public class MarkImpl extends AtomicImpl implements Mark {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

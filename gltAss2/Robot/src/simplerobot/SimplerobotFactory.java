@@ -112,6 +112,15 @@ public interface SimplerobotFactory extends EFactory {
 	IfStatement createIfStatement();
 
 	/**
+	 * Returns a new object of class '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expression</em>'.
+	 * @generated
+	 */
+	Expression createExpression();
+
+	/**
 	 * Returns a new object of class '<em>Full</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,15 +155,6 @@ public interface SimplerobotFactory extends EFactory {
 	 * @generated
 	 */
 	Heading createHeading();
-
-	/**
-	 * Returns a new object of class '<em>And</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>And</em>'.
-	 * @generated
-	 */
-	And createAnd();
 
 	/**
 	 * Returns a new object of class '<em>Not</em>'.

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import simplerobot.Ahead;
-import simplerobot.And;
+import simplerobot.Atomic;
 import simplerobot.BuildWall;
 import simplerobot.Command;
 import simplerobot.Comment;
@@ -138,6 +138,13 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass atomicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass fullEClass = null;
 
 	/**
@@ -160,13 +167,6 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 * @generated
 	 */
 	private EClass headingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass andEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -337,15 +337,6 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComment_Comment() {
-		return (EAttribute)commentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSingleton() {
 		return singletonEClass;
 	}
@@ -373,8 +364,8 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_Text() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTrace_Text() {
+		return (EAttribute)traceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -562,6 +553,33 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getExpression_A() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExpression_B() {
+		return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAtomic() {
+		return atomicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFull() {
 		return fullEClass;
 	}
@@ -600,33 +618,6 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 	 */
 	public EAttribute getHeading_Wind() {
 		return (EAttribute)headingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAnd() {
-		return andEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnd_A() {
-		return (EReference)andEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnd_B() {
-		return (EReference)andEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -747,13 +738,12 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		commandEClass = createEClass(COMMAND);
 
 		commentEClass = createEClass(COMMENT);
-		createEAttribute(commentEClass, COMMENT__COMMENT);
 
 		singletonEClass = createEClass(SINGLETON);
 		createEAttribute(singletonEClass, SINGLETON__TYPE);
 
 		traceEClass = createEClass(TRACE);
-		createEReference(traceEClass, TRACE__TEXT);
+		createEAttribute(traceEClass, TRACE__TEXT);
 
 		buildWallEClass = createEClass(BUILD_WALL);
 		createEAttribute(buildWallEClass, BUILD_WALL__ROW);
@@ -781,6 +771,10 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		createEReference(ifStatementEClass, IF_STATEMENT__BODY);
 
 		expressionEClass = createEClass(EXPRESSION);
+		createEReference(expressionEClass, EXPRESSION__A);
+		createEReference(expressionEClass, EXPRESSION__B);
+
+		atomicEClass = createEClass(ATOMIC);
 
 		fullEClass = createEClass(FULL);
 
@@ -790,10 +784,6 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 
 		headingEClass = createEClass(HEADING);
 		createEAttribute(headingEClass, HEADING__WIND);
-
-		andEClass = createEClass(AND);
-		createEReference(andEClass, AND__A);
-		createEReference(andEClass, AND__B);
 
 		notEClass = createEClass(NOT);
 		createEReference(notEClass, NOT__E);
@@ -849,14 +839,13 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		repeatStatementEClass.getESuperTypes().add(this.getStatement());
 		ifElseStatementEClass.getESuperTypes().add(this.getStatement());
 		ifStatementEClass.getESuperTypes().add(this.getStatement());
-		fullEClass.getESuperTypes().add(this.getExpression());
-		markEClass.getESuperTypes().add(this.getExpression());
-		aheadEClass.getESuperTypes().add(this.getExpression());
-		headingEClass.getESuperTypes().add(this.getExpression());
-		andEClass.getESuperTypes().add(this.getExpression());
-		notEClass.getESuperTypes().add(this.getExpression());
+		fullEClass.getESuperTypes().add(this.getAtomic());
+		markEClass.getESuperTypes().add(this.getAtomic());
+		aheadEClass.getESuperTypes().add(this.getAtomic());
+		headingEClass.getESuperTypes().add(this.getAtomic());
+		notEClass.getESuperTypes().add(this.getAtomic());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRobot_Statements(), this.getStatement(), null, "statements", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", "", 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -866,13 +855,12 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		initEClass(commandEClass, Command.class, "Command", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singletonEClass, Singleton.class, "Singleton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSingleton_Type(), this.getSingletonTypes(), "type", null, 1, 1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(traceEClass, Trace.class, "Trace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrace_Text(), this.getString(), null, "text", null, 0, 1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrace_Text(), ecorePackage.getEString(), "text", null, 1, 1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buildWallEClass, BuildWall.class, "BuildWall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBuildWall_Row(), ecorePackage.getEInt(), "row", null, 1, 1, BuildWall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -899,7 +887,11 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		initEReference(getIfStatement_Cond(), this.getExpression(), null, "cond", null, 1, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIfStatement_Body(), this.getStatement(), null, "body", null, 0, -1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExpression_A(), this.getAtomic(), null, "a", null, 1, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExpression_B(), this.getExpression(), null, "b", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(atomicEClass, Atomic.class, "Atomic", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(fullEClass, Full.class, "Full", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -910,12 +902,8 @@ public class SimplerobotPackageImpl extends EPackageImpl implements SimplerobotP
 		initEClass(headingEClass, Heading.class, "Heading", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeading_Wind(), this.getOrientation(), "wind", null, 1, 1, Heading.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnd_A(), this.getExpression(), null, "a", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnd_B(), this.getExpression(), null, "b", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNot_E(), this.getExpression(), null, "e", null, 1, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNot_E(), this.getAtomic(), null, "e", null, 1, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringEClass, simplerobot.String.class, "String", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getString_Text(), ecorePackage.getEString(), "text", null, 1, 1, simplerobot.String.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

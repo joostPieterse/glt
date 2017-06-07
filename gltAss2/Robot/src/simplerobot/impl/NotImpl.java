@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import simplerobot.Expression;
+import simplerobot.Atomic;
 import simplerobot.Not;
 import simplerobot.SimplerobotPackage;
 
@@ -27,7 +27,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class NotImpl extends ExpressionImpl implements Not {
+public class NotImpl extends AtomicImpl implements Not {
 	/**
 	 * The cached value of the '{@link #getE() <em>E</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public class NotImpl extends ExpressionImpl implements Not {
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression e;
+	protected Atomic e;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class NotImpl extends ExpressionImpl implements Not {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getE() {
+	public Atomic getE() {
 		return e;
 	}
 
@@ -71,8 +71,8 @@ public class NotImpl extends ExpressionImpl implements Not {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetE(Expression newE, NotificationChain msgs) {
-		Expression oldE = e;
+	public NotificationChain basicSetE(Atomic newE, NotificationChain msgs) {
+		Atomic oldE = e;
 		e = newE;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplerobotPackage.NOT__E, oldE, newE);
@@ -86,7 +86,7 @@ public class NotImpl extends ExpressionImpl implements Not {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setE(Expression newE) {
+	public void setE(Atomic newE) {
 		if (newE != e) {
 			NotificationChain msgs = null;
 			if (e != null)
@@ -137,7 +137,7 @@ public class NotImpl extends ExpressionImpl implements Not {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SimplerobotPackage.NOT__E:
-				setE((Expression)newValue);
+				setE((Atomic)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,7 +152,7 @@ public class NotImpl extends ExpressionImpl implements Not {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SimplerobotPackage.NOT__E:
-				setE((Expression)null);
+				setE((Atomic)null);
 				return;
 		}
 		super.eUnset(featureID);

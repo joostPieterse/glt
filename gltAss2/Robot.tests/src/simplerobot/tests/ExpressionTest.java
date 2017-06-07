@@ -4,7 +4,10 @@ package simplerobot.tests;
 
 import junit.framework.TestCase;
 
+import junit.textui.TestRunner;
+
 import simplerobot.Expression;
+import simplerobot.SimplerobotFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +15,7 @@ import simplerobot.Expression;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ExpressionTest extends TestCase {
+public class ExpressionTest extends TestCase {
 
 	/**
 	 * The fixture for this Expression test case.
@@ -21,6 +24,15 @@ public abstract class ExpressionTest extends TestCase {
 	 * @generated
 	 */
 	protected Expression fixture = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(ExpressionTest.class);
+	}
 
 	/**
 	 * Constructs a new Expression test case with the given name.
@@ -50,6 +62,28 @@ public abstract class ExpressionTest extends TestCase {
 	 */
 	protected Expression getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(SimplerobotFactory.eINSTANCE.createExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //ExpressionTest

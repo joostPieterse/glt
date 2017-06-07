@@ -13,5 +13,5 @@ package simplerobot;
  * @model
  * @generated
  */
-public interface Ahead extends Expression {
+public interface Ahead extends Atomic {
 } // Ahead

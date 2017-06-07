@@ -13,7 +13,7 @@ import simplerobot.SimplerobotFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MarkTest extends ExpressionTest {
+public class MarkTest extends AtomicTest {
 
 	/**
 	 * <!-- begin-user-doc -->

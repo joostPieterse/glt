@@ -14,7 +14,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class AheadImpl extends ExpressionImpl implements Ahead {
+public class AheadImpl extends AtomicImpl implements Ahead {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

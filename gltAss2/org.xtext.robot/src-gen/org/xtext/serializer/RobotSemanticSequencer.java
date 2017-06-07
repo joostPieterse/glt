@@ -16,10 +16,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.services.RobotGrammarAccess;
 import simplerobot.Ahead;
-import simplerobot.And;
 import simplerobot.BuildWall;
 import simplerobot.Comment;
 import simplerobot.DropMark;
+import simplerobot.Expression;
 import simplerobot.Full;
 import simplerobot.Heading;
 import simplerobot.IfElseStatement;
@@ -50,9 +50,6 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case SimplerobotPackage.AHEAD:
 				sequence_Ahead(context, (Ahead) semanticObject); 
 				return; 
-			case SimplerobotPackage.AND:
-				sequence_And(context, (And) semanticObject); 
-				return; 
 			case SimplerobotPackage.BUILD_WALL:
 				sequence_BuildWall(context, (BuildWall) semanticObject); 
 				return; 
@@ -61,6 +58,9 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case SimplerobotPackage.DROP_MARK:
 				sequence_DropMark(context, (DropMark) semanticObject); 
+				return; 
+			case SimplerobotPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case SimplerobotPackage.FULL:
 				sequence_Full(context, (Full) semanticObject); 
@@ -118,19 +118,6 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Expression returns And
-	 *     And returns And
-	 *
-	 * Constraint:
-	 *     (a=Atomic b=Expression?)
-	 */
-	protected void sequence_And(ISerializationContext context, And semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Statement returns BuildWall
 	 *     BuildWall returns BuildWall
 	 *
@@ -157,16 +144,10 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Comment returns Comment
 	 *
 	 * Constraint:
-	 *     comment=EString
+	 *     {Comment}
 	 */
 	protected void sequence_Comment(ISerializationContext context, Comment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimplerobotPackage.Literals.COMMENT__COMMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.COMMENT__COMMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommentAccess().getCommentEStringParserRuleCall_1_0(), semanticObject.getComment());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -189,6 +170,18 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getDropMarkAccess().getRowEIntParserRuleCall_3_0(), semanticObject.getRow());
 		feeder.accept(grammarAccess.getDropMarkAccess().getColEIntParserRuleCall_5_0(), semanticObject.getCol());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Expression
+	 *
+	 * Constraint:
+	 *     (a=Atomic b=Expression?)
+	 */
+	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -349,7 +342,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Trace returns Trace
 	 *
 	 * Constraint:
-	 *     text=String0
+	 *     text=EString
 	 */
 	protected void sequence_Trace(ISerializationContext context, Trace semanticObject) {
 		if (errorAcceptor != null) {
@@ -357,7 +350,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.TRACE__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTraceAccess().getTextString0ParserRuleCall_2_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getTraceAccess().getTextEStringParserRuleCall_2_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	

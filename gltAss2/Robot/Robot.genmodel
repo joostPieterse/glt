@@ -26,14 +26,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Robot.ecore#//Statement"/>
     <genClasses image="false" ecoreClass="Robot.ecore#//Command"/>
-    <genClasses ecoreClass="Robot.ecore#//Comment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Robot.ecore#//Comment/comment"/>
-    </genClasses>
+    <genClasses ecoreClass="Robot.ecore#//Comment"/>
     <genClasses ecoreClass="Robot.ecore#//Singleton">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Robot.ecore#//Singleton/type"/>
     </genClasses>
     <genClasses ecoreClass="Robot.ecore#//Trace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//Trace/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Robot.ecore#//Trace/text"/>
     </genClasses>
     <genClasses ecoreClass="Robot.ecore#//BuildWall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Robot.ecore#//BuildWall/row"/>
@@ -60,16 +58,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//IfStatement/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//IfStatement/body"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Robot.ecore#//Expressio"/>
+    <genClasses ecoreClass="Robot.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//Expression/a"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//Expression/b"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Robot.ecore#//Atomic"/>
     <genClasses ecoreClass="Robot.ecore#//Full"/>
     <genClasses ecoreClass="Robot.ecore#//Mark"/>
     <genClasses ecoreClass="Robot.ecore#//Ahead"/>
     <genClasses ecoreClass="Robot.ecore#//Heading">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Robot.ecore#//Heading/wind"/>
-    </genClasses>
-    <genClasses ecoreClass="Robot.ecore#//And">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//And/a"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//And/b"/>
     </genClasses>
     <genClasses ecoreClass="Robot.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Robot.ecore#//Not/e"/>

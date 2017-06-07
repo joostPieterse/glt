@@ -2,6 +2,7 @@
  */
 package simplerobot;
 
+import java.lang.String;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,29 +22,29 @@ package simplerobot;
  */
 public interface Trace extends Command {
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' containment reference.
-	 * @see #setText(simplerobot.String)
+	 * @return the value of the '<em>Text</em>' attribute.
+	 * @see #setText(String)
 	 * @see simplerobot.SimplerobotPackage#getTrace_Text()
-	 * @model containment="true"
+	 * @model required="true"
 	 * @generated
 	 */
-	simplerobot.String getText();
+	String getText();
 
 	/**
-	 * Sets the value of the '{@link simplerobot.Trace#getText <em>Text</em>}' containment reference.
+	 * Sets the value of the '{@link simplerobot.Trace#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text</em>' containment reference.
+	 * @param value the new value of the '<em>Text</em>' attribute.
 	 * @see #getText()
 	 * @generated
 	 */
-	void setText(simplerobot.String value);
+	void setText(String value);
 
 } // Trace

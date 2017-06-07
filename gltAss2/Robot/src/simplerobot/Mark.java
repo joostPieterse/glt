@@ -13,5 +13,5 @@ package simplerobot;
  * @model
  * @generated
  */
-public interface Mark extends Expression {
+public interface Mark extends Atomic {
 } // Mark

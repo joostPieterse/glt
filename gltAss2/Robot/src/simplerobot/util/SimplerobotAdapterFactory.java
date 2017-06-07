@@ -10,7 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import simplerobot.Ahead;
-import simplerobot.And;
+import simplerobot.Atomic;
 import simplerobot.BuildWall;
 import simplerobot.Command;
 import simplerobot.Comment;
@@ -139,6 +139,10 @@ public class SimplerobotAdapterFactory extends AdapterFactoryImpl {
 				return createExpressionAdapter();
 			}
 			@Override
+			public Adapter caseAtomic(Atomic object) {
+				return createAtomicAdapter();
+			}
+			@Override
 			public Adapter caseFull(Full object) {
 				return createFullAdapter();
 			}
@@ -153,10 +157,6 @@ public class SimplerobotAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseHeading(Heading object) {
 				return createHeadingAdapter();
-			}
-			@Override
-			public Adapter caseAnd(And object) {
-				return createAndAdapter();
 			}
 			@Override
 			public Adapter caseNot(Not object) {
@@ -369,6 +369,20 @@ public class SimplerobotAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link simplerobot.Atomic <em>Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simplerobot.Atomic
+	 * @generated
+	 */
+	public Adapter createAtomicAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link simplerobot.Full <em>Full</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -421,20 +435,6 @@ public class SimplerobotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHeadingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link simplerobot.And <em>And</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see simplerobot.And
-	 * @generated
-	 */
-	public Adapter createAndAdapter() {
 		return null;
 	}
 

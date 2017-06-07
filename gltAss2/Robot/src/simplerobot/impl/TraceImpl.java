@@ -2,11 +2,11 @@
  */
 package simplerobot.impl;
 
+import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -28,14 +28,24 @@ import simplerobot.Trace;
  */
 public class TraceImpl extends CommandImpl implements Trace {
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected simplerobot.String text;
+	protected static final String TEXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected String text = TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,7 +71,7 @@ public class TraceImpl extends CommandImpl implements Trace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public simplerobot.String getText() {
+	public String getText() {
 		return text;
 	}
 
@@ -70,47 +80,11 @@ public class TraceImpl extends CommandImpl implements Trace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetText(simplerobot.String newText, NotificationChain msgs) {
-		simplerobot.String oldText = text;
+	public void setText(String newText) {
+		String oldText = text;
 		text = newText;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplerobotPackage.TRACE__TEXT, oldText, newText);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setText(simplerobot.String newText) {
-		if (newText != text) {
-			NotificationChain msgs = null;
-			if (text != null)
-				msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimplerobotPackage.TRACE__TEXT, null, msgs);
-			if (newText != null)
-				msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimplerobotPackage.TRACE__TEXT, null, msgs);
-			msgs = basicSetText(newText, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplerobotPackage.TRACE__TEXT, newText, newText));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimplerobotPackage.TRACE__TEXT:
-				return basicSetText(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplerobotPackage.TRACE__TEXT, oldText, text));
 	}
 
 	/**
@@ -136,7 +110,7 @@ public class TraceImpl extends CommandImpl implements Trace {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SimplerobotPackage.TRACE__TEXT:
-				setText((simplerobot.String)newValue);
+				setText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -151,7 +125,7 @@ public class TraceImpl extends CommandImpl implements Trace {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SimplerobotPackage.TRACE__TEXT:
-				setText((simplerobot.String)null);
+				setText(TEXT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -166,9 +140,25 @@ public class TraceImpl extends CommandImpl implements Trace {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SimplerobotPackage.TRACE__TEXT:
-				return text != null;
+				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (text: ");
+		result.append(text);
+		result.append(')');
+		return result.toString();
 	}
 
 } //TraceImpl

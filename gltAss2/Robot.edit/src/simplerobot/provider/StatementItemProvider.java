@@ -103,7 +103,7 @@ public class StatementItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RobotEditPlugin.INSTANCE;
+		return SimplerobotEditPlugin.INSTANCE;
 	}
 
 }

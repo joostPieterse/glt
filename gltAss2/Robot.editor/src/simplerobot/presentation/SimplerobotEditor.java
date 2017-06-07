@@ -530,7 +530,7 @@ public class SimplerobotEditor
 					}
 				}
 				catch (CoreException exception) {
-					RobotEditorPlugin.INSTANCE.log(exception);
+					SimplerobotEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -646,7 +646,7 @@ public class SimplerobotEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					RobotEditorPlugin.INSTANCE.log(exception);
+					SimplerobotEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -657,7 +657,7 @@ public class SimplerobotEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						RobotEditorPlugin.INSTANCE.log(exception);
+						SimplerobotEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -1523,7 +1523,7 @@ public class SimplerobotEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			RobotEditorPlugin.INSTANCE.log(exception);
+			SimplerobotEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1727,7 +1727,7 @@ public class SimplerobotEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return RobotEditorPlugin.INSTANCE.getString(key);
+		return SimplerobotEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1737,7 +1737,7 @@ public class SimplerobotEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return RobotEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return SimplerobotEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

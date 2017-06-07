@@ -302,6 +302,29 @@ public class SimplerobotItemProviderAdapterFactory extends SimplerobotAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link simplerobot.Expression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExpressionItemProvider expressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link simplerobot.Expression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExpressionAdapter() {
+		if (expressionItemProvider == null) {
+			expressionItemProvider = new ExpressionItemProvider(this);
+		}
+
+		return expressionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link simplerobot.Full} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,29 +414,6 @@ public class SimplerobotItemProviderAdapterFactory extends SimplerobotAdapterFac
 		}
 
 		return headingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link simplerobot.And} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AndItemProvider andItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link simplerobot.And}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAndAdapter() {
-		if (andItemProvider == null) {
-			andItemProvider = new AndItemProvider(this);
-		}
-
-		return andItemProvider;
 	}
 
 	/**
@@ -571,11 +571,11 @@ public class SimplerobotItemProviderAdapterFactory extends SimplerobotAdapterFac
 		if (repeatStatementItemProvider != null) repeatStatementItemProvider.dispose();
 		if (ifElseStatementItemProvider != null) ifElseStatementItemProvider.dispose();
 		if (ifStatementItemProvider != null) ifStatementItemProvider.dispose();
+		if (expressionItemProvider != null) expressionItemProvider.dispose();
 		if (fullItemProvider != null) fullItemProvider.dispose();
 		if (markItemProvider != null) markItemProvider.dispose();
 		if (aheadItemProvider != null) aheadItemProvider.dispose();
 		if (headingItemProvider != null) headingItemProvider.dispose();
-		if (andItemProvider != null) andItemProvider.dispose();
 		if (notItemProvider != null) notItemProvider.dispose();
 		if (stringItemProvider != null) stringItemProvider.dispose();
 	}

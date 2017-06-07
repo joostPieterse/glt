@@ -4,7 +4,7 @@ package simplerobot.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import simplerobot.SimplerobotPackage;
 import simplerobot.Statement;
@@ -16,7 +16,7 @@ import simplerobot.Statement;
  *
  * @generated
  */
-public abstract class StatementImpl extends MinimalEObjectImpl.Container implements Statement {
+public abstract class StatementImpl extends EObjectImpl implements Statement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

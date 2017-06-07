@@ -9,13 +9,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import simplerobot.Comment;
-import simplerobot.SimplerobotPackage;
 
 /**
  * This is the item provider adapter for a {@link simplerobot.Comment} object.
@@ -45,31 +39,8 @@ public class CommentItemProvider extends CommandItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCommentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Comment feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCommentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Comment_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Comment_comment_feature", "_UI_Comment_type"),
-				 SimplerobotPackage.Literals.COMMENT__COMMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -91,10 +62,7 @@ public class CommentItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Comment)object).getComment();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Comment_type") :
-			getString("_UI_Comment_type") + " " + label;
+		return getString("_UI_Comment_type");
 	}
 	
 
@@ -108,12 +76,6 @@ public class CommentItemProvider extends CommandItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Comment.class)) {
-			case SimplerobotPackage.COMMENT__COMMENT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

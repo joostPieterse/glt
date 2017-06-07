@@ -233,7 +233,7 @@ public class RobotItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RobotEditPlugin.INSTANCE;
+		return SimplerobotEditPlugin.INSTANCE;
 	}
 
 }

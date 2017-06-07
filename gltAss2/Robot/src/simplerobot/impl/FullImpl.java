@@ -14,7 +14,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class FullImpl extends ExpressionImpl implements Full {
+public class FullImpl extends AtomicImpl implements Full {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -18,20 +18,24 @@ Atomic returns Atomic:
 	Full | Mark | Ahead | Heading | Not;
 	
 Expression returns Expression:
-	And;
+	{Expression}
+	a=Atomic (('and'|'or') b=Expression)?;
 
 EString returns ecore::EString:
 	STRING | ID;
 
+terminal COMMENTTEXT 	: '#' !('\n'|'\r')* ('\r'? '\n')?;
+
 Comment returns Comment:
-	'#' comment=EString '\n';
+	{Comment}
+	COMMENTTEXT;
 
 Singleton returns Singleton:
 	type=SingletonTypes;
 
 Trace returns Trace:
 	{Trace}
-	'Trace' text=String0;
+	'trace' text=EString;
 
 BuildWall returns BuildWall:
 	'buildWall' 'at' 'row:' row=EInt 'col:' col=EInt;
@@ -50,14 +54,14 @@ RepeatStatement returns RepeatStatement:
 	'end';
 
 IfElseStatement returns IfElseStatement:
-	'if' cond=Expression 'then' '\n'?
+	'if' cond=Expression 'do' '\n'?
 		(ifbody+=Statement '\n'? ( ifbody+=Statement '\n'?)*)?
 	('else' '\n'?
 		(elsebody+=Statement '\n'?( elsebody+=Statement '\n'?)*)?)?
 	'end';
 
 IfStatement returns IfStatement:
-	'if' cond=Expression 'then' '\n'?
+	'if' cond=Expression 'do' '\n'?
 		(body+=Statement '\n'?( body+=Statement '\n'?)*)?
 	'end';
 
@@ -84,10 +88,6 @@ Ahead returns Ahead:
 
 Heading returns Heading:
 	'heading' wind=Orientation;
-
-And returns And:
-	a=Atomic ('and' b=Expression?)?;
-	
 
 Not returns Not:
 	'not' e=Atomic;

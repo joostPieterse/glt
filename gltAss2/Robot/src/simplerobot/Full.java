@@ -13,5 +13,5 @@ package simplerobot;
  * @model
  * @generated
  */
-public interface Full extends Expression {
+public interface Full extends Atomic {
 } // Full

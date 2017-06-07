@@ -350,14 +350,66 @@ ruleExpression returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getExpressionAccess().getAndParserRuleCall());
-	}
-	this_And_0=ruleAnd
-	{
-		$current = $this_And_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getExpressionAccess().getExpressionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExpressionAccess().getAAtomicParserRuleCall_1_0());
+				}
+				lv_a_1_0=ruleAtomic
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExpressionRule());
+					}
+					set(
+						$current,
+						"a",
+						lv_a_1_0,
+						"org.xtext.Robot.Atomic");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				otherlv_2='and'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpressionAccess().getAndKeyword_2_0_0());
+				}
+				    |
+				otherlv_3='or'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getExpressionAccess().getOrKeyword_2_0_1());
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpressionAccess().getBExpressionParserRuleCall_2_1_0());
+					}
+					lv_b_4_0=ruleExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpressionRule());
+						}
+						set(
+							$current,
+							"b",
+							lv_b_4_0,
+							"org.xtext.Robot.Expression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
 ;
 
 // Entry rule entryRuleEString
@@ -410,32 +462,16 @@ ruleComment returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='#'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getCommentAccess().getNumberSignKeyword_0());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCommentAccess().getCommentEStringParserRuleCall_1_0());
-				}
-				lv_comment_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCommentRule());
-					}
-					set(
-						$current,
-						"comment",
-						lv_comment_1_0,
-						"org.xtext.Robot.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getCommentAccess().getCommentAction_0(),
+					$current);
+			}
 		)
-		otherlv_2='\n'
+		this_COMMENTTEXT_1=RULE_COMMENTTEXT
 		{
-			newLeafNode(otherlv_2, grammarAccess.getCommentAccess().getLineFeedKeyword_2());
+			newLeafNode(this_COMMENTTEXT_1, grammarAccess.getCommentAccess().getCOMMENTTEXTTerminalRuleCall_1());
 		}
 	)
 ;
@@ -499,16 +535,16 @@ ruleTrace returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='Trace'
+		otherlv_1='trace'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getTraceAccess().getTraceKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTraceAccess().getTextString0ParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTraceAccess().getTextEStringParserRuleCall_2_0());
 				}
-				lv_text_2_0=ruleString0
+				lv_text_2_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTraceRule());
@@ -517,7 +553,7 @@ ruleTrace returns [EObject current=null]
 						$current,
 						"text",
 						lv_text_2_0,
-						"org.xtext.Robot.String0");
+						"org.xtext.Robot.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -930,9 +966,9 @@ ruleIfElseStatement returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='then'
+		otherlv_2='do'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getIfElseStatementAccess().getThenKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getIfElseStatementAccess().getDoKeyword_2());
 		}
 		(
 			otherlv_3='\n'
@@ -1063,52 +1099,6 @@ ruleIfElseStatement returns [EObject current=null]
 		otherlv_14='end'
 		{
 			newLeafNode(otherlv_14, grammarAccess.getIfElseStatementAccess().getEndKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleString0
-entryRuleString0 returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getString0Rule()); }
-	iv_ruleString0=ruleString0
-	{ $current=$iv_ruleString0.current; }
-	EOF;
-
-// Rule String0
-ruleString0 returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='"'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getString0Access().getQuotationMarkKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getString0Access().getTextEStringParserRuleCall_1_0());
-				}
-				lv_text_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getString0Rule());
-					}
-					set(
-						$current,
-						"text",
-						lv_text_1_0,
-						"org.xtext.Robot.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='"'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getString0Access().getQuotationMarkKeyword_2());
 		}
 	)
 ;
@@ -1273,69 +1263,6 @@ ruleHeading returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAnd
-entryRuleAnd returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAndRule()); }
-	iv_ruleAnd=ruleAnd
-	{ $current=$iv_ruleAnd.current; }
-	EOF;
-
-// Rule And
-ruleAnd returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getAndAccess().getAAtomicParserRuleCall_0_0());
-				}
-				lv_a_0_0=ruleAtomic
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAndRule());
-					}
-					set(
-						$current,
-						"a",
-						lv_a_0_0,
-						"org.xtext.Robot.Atomic");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_1='and'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getAndAccess().getAndKeyword_1_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getBExpressionParserRuleCall_1_1_0());
-					}
-					lv_b_2_0=ruleExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						set(
-							$current,
-							"b",
-							lv_b_2_0,
-							"org.xtext.Robot.Expression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)?
-		)?
-	)
-;
-
 // Entry rule entryRuleNot
 entryRuleNot returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getNotRule()); }
@@ -1463,6 +1390,8 @@ ruleOrientation returns [Enumerator current=null]
 		)
 	)
 ;
+
+RULE_COMMENTTEXT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

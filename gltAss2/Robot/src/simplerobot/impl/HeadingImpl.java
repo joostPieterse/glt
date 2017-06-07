@@ -25,7 +25,7 @@ import simplerobot.SimplerobotPackage;
  *
  * @generated
  */
-public class HeadingImpl extends ExpressionImpl implements Heading {
+public class HeadingImpl extends AtomicImpl implements Heading {
 	/**
 	 * The default value of the '{@link #getWind() <em>Wind</em>}' attribute.
 	 * <!-- begin-user-doc -->

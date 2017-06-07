@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -18,6 +20,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import simplerobot.Expression;
+import simplerobot.SimplerobotFactory;
+import simplerobot.SimplerobotPackage;
 
 /**
  * This is the item provider adapter for a {@link simplerobot.Expression} object.
@@ -59,6 +66,48 @@ public class ExpressionItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SimplerobotPackage.Literals.EXPRESSION__A);
+			childrenFeatures.add(SimplerobotPackage.Literals.EXPRESSION__B);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns Expression.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Expression"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +129,13 @@ public class ExpressionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Expression.class)) {
+			case SimplerobotPackage.EXPRESSION__A:
+			case SimplerobotPackage.EXPRESSION__B:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -93,6 +149,36 @@ public class ExpressionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__A,
+				 SimplerobotFactory.eINSTANCE.createFull()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__A,
+				 SimplerobotFactory.eINSTANCE.createMark()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__A,
+				 SimplerobotFactory.eINSTANCE.createAhead()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__A,
+				 SimplerobotFactory.eINSTANCE.createHeading()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__A,
+				 SimplerobotFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimplerobotPackage.Literals.EXPRESSION__B,
+				 SimplerobotFactory.eINSTANCE.createExpression()));
 	}
 
 	/**
@@ -103,7 +189,7 @@ public class ExpressionItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return RobotEditPlugin.INSTANCE;
+		return SimplerobotEditPlugin.INSTANCE;
 	}
 
 }

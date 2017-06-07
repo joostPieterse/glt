@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import simplerobot.Ahead;
-import simplerobot.And;
+import simplerobot.Atomic;
 import simplerobot.BuildWall;
 import simplerobot.Command;
 import simplerobot.Comment;
@@ -178,45 +178,44 @@ public class SimplerobotSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimplerobotPackage.ATOMIC: {
+				Atomic atomic = (Atomic)theEObject;
+				T result = caseAtomic(atomic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimplerobotPackage.FULL: {
 				Full full = (Full)theEObject;
 				T result = caseFull(full);
-				if (result == null) result = caseExpression(full);
+				if (result == null) result = caseAtomic(full);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SimplerobotPackage.MARK: {
 				Mark mark = (Mark)theEObject;
 				T result = caseMark(mark);
-				if (result == null) result = caseExpression(mark);
+				if (result == null) result = caseAtomic(mark);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SimplerobotPackage.AHEAD: {
 				Ahead ahead = (Ahead)theEObject;
 				T result = caseAhead(ahead);
-				if (result == null) result = caseExpression(ahead);
+				if (result == null) result = caseAtomic(ahead);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SimplerobotPackage.HEADING: {
 				Heading heading = (Heading)theEObject;
 				T result = caseHeading(heading);
-				if (result == null) result = caseExpression(heading);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimplerobotPackage.AND: {
-				And and = (And)theEObject;
-				T result = caseAnd(and);
-				if (result == null) result = caseExpression(and);
+				if (result == null) result = caseAtomic(heading);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SimplerobotPackage.NOT: {
 				Not not = (Not)theEObject;
 				T result = caseNot(not);
-				if (result == null) result = caseExpression(not);
+				if (result == null) result = caseAtomic(not);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -426,6 +425,21 @@ public class SimplerobotSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Atomic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAtomic(Atomic object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Full</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -482,21 +496,6 @@ public class SimplerobotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHeading(Heading object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>And</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>And</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnd(And object) {
 		return null;
 	}
 

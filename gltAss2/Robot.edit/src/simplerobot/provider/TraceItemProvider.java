@@ -10,10 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import simplerobot.SimplerobotFactory;
+
 import simplerobot.SimplerobotPackage;
 import simplerobot.Trace;
 
@@ -98,7 +98,10 @@ public class TraceItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Trace_type");
+		String label = ((Trace)object).getText();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Trace_type") :
+			getString("_UI_Trace_type") + " " + label;
 	}
 	
 
@@ -115,7 +118,7 @@ public class TraceItemProvider extends CommandItemProvider {
 
 		switch (notification.getFeatureID(Trace.class)) {
 			case SimplerobotPackage.TRACE__TEXT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -135,7 +138,7 @@ public class TraceItemProvider extends CommandItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SimplerobotPackage.Literals.TRACE__TEXT,
-				 SimplerobotFactory.eINSTANCE.createString()));
+				 ""));
 	}
 
 }

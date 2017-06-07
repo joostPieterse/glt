@@ -33,12 +33,15 @@ public class RobotParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getAtomicAccess().getAlternatives(), "rule__Atomic__Alternatives");
+					put(grammarAccess.getExpressionAccess().getAlternatives_2_0(), "rule__Expression__Alternatives_2_0");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getSingletonTypesAccess().getAlternatives(), "rule__SingletonTypes__Alternatives");
 					put(grammarAccess.getOrientationAccess().getAlternatives(), "rule__Orientation__Alternatives");
 					put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
 					put(grammarAccess.getRobotAccess().getGroup_6(), "rule__Robot__Group_6__0");
 					put(grammarAccess.getRobotAccess().getGroup_6_2(), "rule__Robot__Group_6_2__0");
+					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
+					put(grammarAccess.getExpressionAccess().getGroup_2(), "rule__Expression__Group_2__0");
 					put(grammarAccess.getCommentAccess().getGroup(), "rule__Comment__Group__0");
 					put(grammarAccess.getTraceAccess().getGroup(), "rule__Trace__Group__0");
 					put(grammarAccess.getBuildWallAccess().getGroup(), "rule__BuildWall__Group__0");
@@ -63,13 +66,12 @@ public class RobotParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMarkAccess().getGroup(), "rule__Mark__Group__0");
 					put(grammarAccess.getAheadAccess().getGroup(), "rule__Ahead__Group__0");
 					put(grammarAccess.getHeadingAccess().getGroup(), "rule__Heading__Group__0");
-					put(grammarAccess.getAndAccess().getGroup(), "rule__And__Group__0");
-					put(grammarAccess.getAndAccess().getGroup_1(), "rule__And__Group_1__0");
 					put(grammarAccess.getNotAccess().getGroup(), "rule__Not__Group__0");
 					put(grammarAccess.getRobotAccess().getNameAssignment_2(), "rule__Robot__NameAssignment_2");
 					put(grammarAccess.getRobotAccess().getStatementsAssignment_6_0(), "rule__Robot__StatementsAssignment_6_0");
 					put(grammarAccess.getRobotAccess().getStatementsAssignment_6_2_0(), "rule__Robot__StatementsAssignment_6_2_0");
-					put(grammarAccess.getCommentAccess().getCommentAssignment_1(), "rule__Comment__CommentAssignment_1");
+					put(grammarAccess.getExpressionAccess().getAAssignment_1(), "rule__Expression__AAssignment_1");
+					put(grammarAccess.getExpressionAccess().getBAssignment_2_1(), "rule__Expression__BAssignment_2_1");
 					put(grammarAccess.getSingletonAccess().getTypeAssignment(), "rule__Singleton__TypeAssignment");
 					put(grammarAccess.getTraceAccess().getTextAssignment_2(), "rule__Trace__TextAssignment_2");
 					put(grammarAccess.getBuildWallAccess().getRowAssignment_3(), "rule__BuildWall__RowAssignment_3");
@@ -92,8 +94,6 @@ public class RobotParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfStatementAccess().getBodyAssignment_4_2_0(), "rule__IfStatement__BodyAssignment_4_2_0");
 					put(grammarAccess.getString0Access().getTextAssignment_1(), "rule__String0__TextAssignment_1");
 					put(grammarAccess.getHeadingAccess().getWindAssignment_1(), "rule__Heading__WindAssignment_1");
-					put(grammarAccess.getAndAccess().getAAssignment_0(), "rule__And__AAssignment_0");
-					put(grammarAccess.getAndAccess().getBAssignment_1_1(), "rule__And__BAssignment_1_1");
 					put(grammarAccess.getNotAccess().getEAssignment_1(), "rule__Not__EAssignment_1");
 				}
 			};

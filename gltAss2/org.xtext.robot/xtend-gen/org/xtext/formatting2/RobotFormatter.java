@@ -30,7 +30,7 @@ public class RobotFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Trace trace, @Extension final IFormattableDocument document) {
-    document.<simplerobot.String>format(trace.getText());
+    document.<String>format(trace.getText());
   }
   
   public void format(final Object trace, final IFormattableDocument document) {

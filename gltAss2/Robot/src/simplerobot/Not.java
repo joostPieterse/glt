@@ -19,7 +19,7 @@ package simplerobot;
  * @model
  * @generated
  */
-public interface Not extends Expression {
+public interface Not extends Atomic {
 	/**
 	 * Returns the value of the '<em><b>E</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -29,12 +29,12 @@ public interface Not extends Expression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>E</em>' containment reference.
-	 * @see #setE(Expression)
+	 * @see #setE(Atomic)
 	 * @see simplerobot.SimplerobotPackage#getNot_E()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Expression getE();
+	Atomic getE();
 
 	/**
 	 * Sets the value of the '{@link simplerobot.Not#getE <em>E</em>}' containment reference.
@@ -44,6 +44,6 @@ public interface Not extends Expression {
 	 * @see #getE()
 	 * @generated
 	 */
-	void setE(Expression value);
+	void setE(Atomic value);
 
 } // Not
