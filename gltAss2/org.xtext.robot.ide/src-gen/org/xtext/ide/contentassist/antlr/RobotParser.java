@@ -56,8 +56,8 @@ public class RobotParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfElseStatementAccess().getGroup_4(), "rule__IfElseStatement__Group_4__0");
 					put(grammarAccess.getIfElseStatementAccess().getGroup_4_2(), "rule__IfElseStatement__Group_4_2__0");
 					put(grammarAccess.getIfElseStatementAccess().getGroup_5(), "rule__IfElseStatement__Group_5__0");
-					put(grammarAccess.getIfElseStatementAccess().getGroup_5_2(), "rule__IfElseStatement__Group_5_2__0");
-					put(grammarAccess.getIfElseStatementAccess().getGroup_5_2_2(), "rule__IfElseStatement__Group_5_2_2__0");
+					put(grammarAccess.getIfElseStatementAccess().getGroup_5_3(), "rule__IfElseStatement__Group_5_3__0");
+					put(grammarAccess.getIfElseStatementAccess().getGroup_5_3_2(), "rule__IfElseStatement__Group_5_3_2__0");
 					put(grammarAccess.getIfStatementAccess().getGroup(), "rule__IfStatement__Group__0");
 					put(grammarAccess.getIfStatementAccess().getGroup_4(), "rule__IfStatement__Group_4__0");
 					put(grammarAccess.getIfStatementAccess().getGroup_4_2(), "rule__IfStatement__Group_4_2__0");
@@ -87,8 +87,8 @@ public class RobotParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfElseStatementAccess().getCondAssignment_1(), "rule__IfElseStatement__CondAssignment_1");
 					put(grammarAccess.getIfElseStatementAccess().getIfbodyAssignment_4_0(), "rule__IfElseStatement__IfbodyAssignment_4_0");
 					put(grammarAccess.getIfElseStatementAccess().getIfbodyAssignment_4_2_0(), "rule__IfElseStatement__IfbodyAssignment_4_2_0");
-					put(grammarAccess.getIfElseStatementAccess().getElsebodyAssignment_5_2_0(), "rule__IfElseStatement__ElsebodyAssignment_5_2_0");
-					put(grammarAccess.getIfElseStatementAccess().getElsebodyAssignment_5_2_2_0(), "rule__IfElseStatement__ElsebodyAssignment_5_2_2_0");
+					put(grammarAccess.getIfElseStatementAccess().getElsebodyAssignment_5_3_0(), "rule__IfElseStatement__ElsebodyAssignment_5_3_0");
+					put(grammarAccess.getIfElseStatementAccess().getElsebodyAssignment_5_3_2_0(), "rule__IfElseStatement__ElsebodyAssignment_5_3_2_0");
 					put(grammarAccess.getIfStatementAccess().getCondAssignment_1(), "rule__IfStatement__CondAssignment_1");
 					put(grammarAccess.getIfStatementAccess().getBodyAssignment_4_0(), "rule__IfStatement__BodyAssignment_4_0");
 					put(grammarAccess.getIfStatementAccess().getBodyAssignment_4_2_0(), "rule__IfStatement__BodyAssignment_4_2_0");

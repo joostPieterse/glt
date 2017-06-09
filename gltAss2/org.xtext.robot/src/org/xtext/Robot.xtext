@@ -6,13 +6,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Robot returns Robot:
 	{Robot}
-	'Script' name=EString 'runs' 'as' '\n'?
+	'Script' name=NAME 'runs' 'as' '\n'?
 		(statements+=Statement '\n'? ( statements+=Statement '\n'?)*)?
 	'end';
 
 Statement returns Statement:
 	Comment | Singleton | Trace | BuildWall | DropMark | WhileStatement | RepeatStatement | IfElseStatement ;//| IfStatement;
 
+terminal NAME returns ecore::EString:
+	('a'..'z'|'A'..'Z')+;
 
 Atomic returns Atomic:
 	Full | Mark | Ahead | Heading | Not;
@@ -35,13 +37,13 @@ Singleton returns Singleton:
 
 Trace returns Trace:
 	{Trace}
-	'trace' text=EString;
+	'trace' text=STRING;
 
 BuildWall returns BuildWall:
-	'buildWall' 'at' 'row:' row=EInt 'col:' col=EInt;
+	'buildWall' 'at' 'row:' row=PROPERINT 'col:' col=PROPERINT;
 
 DropMark returns DropMark:
-	'dropMark' 'at' 'row:' row=EInt 'col:' col=EInt;
+	'dropMark' 'at' 'row:' row=PROPERINT 'col:' col=PROPERINT;
 
 WhileStatement returns WhileStatement:
 	'while' cond=Expression 'do' '\n'?
@@ -49,14 +51,14 @@ WhileStatement returns WhileStatement:
 	'end';
 
 RepeatStatement returns RepeatStatement:
-	'repeat' times=EInt 'times' '\n'?
+	'repeat' times=PROPERINT 'times' '\n'?
 		(body+=Statement '\n'? ( body+=Statement '\n'?)*)?
 	'end';
 
 IfElseStatement returns IfElseStatement:
 	'if' cond=Expression 'do' '\n'?
 		(ifbody+=Statement '\n'? ( ifbody+=Statement '\n'?)*)?
-	('else' '\n'?
+	('else' 'do' '\n'?
 		(elsebody+=Statement '\n'?( elsebody+=Statement '\n'?)*)?)?
 	'end';
 
@@ -71,8 +73,8 @@ enum SingletonTypes returns SingletonTypes:
 String0 returns String:
 	'"' text=EString '"' ;
 
-EInt returns ecore::EInt:
-	INT;
+terminal PROPERINT returns ecore::EInt:
+	'0' | ('1'..'9')('0'..'9')*;
 
 Full returns Full:
 	{Full}

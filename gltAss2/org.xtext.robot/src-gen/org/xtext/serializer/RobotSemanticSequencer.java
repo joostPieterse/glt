@@ -122,7 +122,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     BuildWall returns BuildWall
 	 *
 	 * Constraint:
-	 *     (row=EInt col=EInt)
+	 *     (row=PROPERINT col=PROPERINT)
 	 */
 	protected void sequence_BuildWall(ISerializationContext context, BuildWall semanticObject) {
 		if (errorAcceptor != null) {
@@ -132,8 +132,8 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.BUILD_WALL__COL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBuildWallAccess().getRowEIntParserRuleCall_3_0(), semanticObject.getRow());
-		feeder.accept(grammarAccess.getBuildWallAccess().getColEIntParserRuleCall_5_0(), semanticObject.getCol());
+		feeder.accept(grammarAccess.getBuildWallAccess().getRowPROPERINTTerminalRuleCall_3_0(), semanticObject.getRow());
+		feeder.accept(grammarAccess.getBuildWallAccess().getColPROPERINTTerminalRuleCall_5_0(), semanticObject.getCol());
 		feeder.finish();
 	}
 	
@@ -157,7 +157,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     DropMark returns DropMark
 	 *
 	 * Constraint:
-	 *     (row=EInt col=EInt)
+	 *     (row=PROPERINT col=PROPERINT)
 	 */
 	protected void sequence_DropMark(ISerializationContext context, DropMark semanticObject) {
 		if (errorAcceptor != null) {
@@ -167,8 +167,8 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.DROP_MARK__COL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDropMarkAccess().getRowEIntParserRuleCall_3_0(), semanticObject.getRow());
-		feeder.accept(grammarAccess.getDropMarkAccess().getColEIntParserRuleCall_5_0(), semanticObject.getCol());
+		feeder.accept(grammarAccess.getDropMarkAccess().getRowPROPERINTTerminalRuleCall_3_0(), semanticObject.getRow());
+		feeder.accept(grammarAccess.getDropMarkAccess().getColPROPERINTTerminalRuleCall_5_0(), semanticObject.getCol());
 		feeder.finish();
 	}
 	
@@ -280,7 +280,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     RepeatStatement returns RepeatStatement
 	 *
 	 * Constraint:
-	 *     (times=EInt (body+=Statement body+=Statement*)?)
+	 *     (times=PROPERINT (body+=Statement body+=Statement*)?)
 	 */
 	protected void sequence_RepeatStatement(ISerializationContext context, RepeatStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -292,7 +292,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
-	 *     (name=EString (statements+=Statement statements+=Statement*)?)
+	 *     (name=NAME (statements+=Statement statements+=Statement*)?)
 	 */
 	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -342,7 +342,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Trace returns Trace
 	 *
 	 * Constraint:
-	 *     text=EString
+	 *     text=STRING
 	 */
 	protected void sequence_Trace(ISerializationContext context, Trace semanticObject) {
 		if (errorAcceptor != null) {
@@ -350,7 +350,7 @@ public class RobotSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplerobotPackage.Literals.TRACE__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTraceAccess().getTextEStringParserRuleCall_2_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getTraceAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	

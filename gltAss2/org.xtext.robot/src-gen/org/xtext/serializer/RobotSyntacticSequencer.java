@@ -26,10 +26,10 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_3_q;
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_1_q;
 	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_4_2_1_q;
-	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_1_q;
-	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_2_1_q;
-	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_2_2_1_q;
-	protected AbstractElementAlias match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_2_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_3_1_q;
+	protected AbstractElementAlias match_IfElseStatement_LineFeedKeyword_5_3_2_1_q;
+	protected AbstractElementAlias match_IfElseStatement___ElseKeyword_5_0_DoKeyword_5_1_LineFeedKeyword_5_2_q__q;
 	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_3_q;
 	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_4_1_q;
 	protected AbstractElementAlias match_IfStatement_LineFeedKeyword_4_2_1_q;
@@ -50,10 +50,10 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_IfElseStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_3());
 		match_IfElseStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_1());
 		match_IfElseStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_4_2_1());
-		match_IfElseStatement_LineFeedKeyword_5_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_1());
-		match_IfElseStatement_LineFeedKeyword_5_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2_1());
-		match_IfElseStatement_LineFeedKeyword_5_2_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2_2_1());
-		match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfElseStatementAccess().getElseKeyword_5_0()), new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_1()));
+		match_IfElseStatement_LineFeedKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2());
+		match_IfElseStatement_LineFeedKeyword_5_3_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_3_1());
+		match_IfElseStatement_LineFeedKeyword_5_3_2_1_q = new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_3_2_1());
+		match_IfElseStatement___ElseKeyword_5_0_DoKeyword_5_1_LineFeedKeyword_5_2_q__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfElseStatementAccess().getElseKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getIfElseStatementAccess().getDoKeyword_5_1()), new TokenAlias(false, true, grammarAccess.getIfElseStatementAccess().getLineFeedKeyword_5_2()));
 		match_IfStatement_LineFeedKeyword_3_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_3());
 		match_IfStatement_LineFeedKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_4_1());
 		match_IfStatement_LineFeedKeyword_4_2_1_q = new TokenAlias(false, true, grammarAccess.getIfStatementAccess().getLineFeedKeyword_4_2_1());
@@ -98,14 +98,14 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_IfElseStatement_LineFeedKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfElseStatement_LineFeedKeyword_4_2_1_q.equals(syntax))
 				emit_IfElseStatement_LineFeedKeyword_4_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IfElseStatement_LineFeedKeyword_5_1_q.equals(syntax))
-				emit_IfElseStatement_LineFeedKeyword_5_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IfElseStatement_LineFeedKeyword_5_2_1_q.equals(syntax))
-				emit_IfElseStatement_LineFeedKeyword_5_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IfElseStatement_LineFeedKeyword_5_2_2_1_q.equals(syntax))
-				emit_IfElseStatement_LineFeedKeyword_5_2_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q.equals(syntax))
-				emit_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_2_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_3_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement_LineFeedKeyword_5_3_2_1_q.equals(syntax))
+				emit_IfElseStatement_LineFeedKeyword_5_3_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IfElseStatement___ElseKeyword_5_0_DoKeyword_5_1_LineFeedKeyword_5_2_q__q.equals(syntax))
+				emit_IfElseStatement___ElseKeyword_5_0_DoKeyword_5_1_LineFeedKeyword_5_2_q__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfStatement_LineFeedKeyword_3_q.equals(syntax))
 				emit_IfStatement_LineFeedKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfStatement_LineFeedKeyword_4_1_q.equals(syntax))
@@ -156,6 +156,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         'do' 
 	 *         (ambiguity) 
 	 *         'else' 
+	 *         'do' 
 	 *         '
 	 *         '? 
 	 *         elsebody+=Statement
@@ -166,6 +167,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         (ambiguity) 
 	 *         (
 	 *             'else' 
+	 *             'do' 
 	 *             '
 	 *             '?
 	 *         )? 
@@ -188,6 +190,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         ifbody+=Statement 
 	 *         (ambiguity) 
 	 *         'else' 
+	 *         'do' 
 	 *         '
 	 *         '? 
 	 *         elsebody+=Statement
@@ -197,6 +200,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         (ambiguity) 
 	 *         (
 	 *             'else' 
+	 *             'do' 
 	 *             '
 	 *             '?
 	 *         )? 
@@ -219,6 +223,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         ifbody+=Statement 
 	 *         (ambiguity) 
 	 *         'else' 
+	 *         'do' 
 	 *         '
 	 *         '? 
 	 *         elsebody+=Statement
@@ -228,6 +233,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         (ambiguity) 
 	 *         (
 	 *             'else' 
+	 *             'do' 
 	 *             '
 	 *             '?
 	 *         )? 
@@ -252,6 +258,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         '
 	 *         '? 
 	 *         'else' 
+	 *         'do' 
 	 *         (ambiguity) 
 	 *         elsebody+=Statement
 	 *     )
@@ -260,11 +267,12 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         '
 	 *         '? 
 	 *         'else' 
+	 *         'do' 
 	 *         (ambiguity) 
 	 *         elsebody+=Statement
 	 *     )
 	 */
-	protected void emit_IfElseStatement_LineFeedKeyword_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IfElseStatement_LineFeedKeyword_5_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -277,7 +285,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     elsebody+=Statement (ambiguity) 'end' (rule end)
 	 *     elsebody+=Statement (ambiguity) elsebody+=Statement
 	 */
-	protected void emit_IfElseStatement_LineFeedKeyword_5_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IfElseStatement_LineFeedKeyword_5_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -290,7 +298,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     elsebody+=Statement (ambiguity) 'end' (rule end)
 	 *     elsebody+=Statement (ambiguity) elsebody+=Statement
 	 */
-	protected void emit_IfElseStatement_LineFeedKeyword_5_2_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IfElseStatement_LineFeedKeyword_5_3_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -298,6 +306,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Ambiguous syntax:
 	 *     (
 	  *         'else' 
+	  *         'do' 
 	  *         '
 	  *         '?
 	  *     )?
@@ -321,7 +330,7 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *         (rule end)
 	 *     )
 	 */
-	protected void emit_IfElseStatement___ElseKeyword_5_0_LineFeedKeyword_5_1_q__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IfElseStatement___ElseKeyword_5_0_DoKeyword_5_1_LineFeedKeyword_5_2_q__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -370,8 +379,8 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	  *     '?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     times=EInt 'times' (ambiguity) 'end' (rule end)
-	 *     times=EInt 'times' (ambiguity) body+=Statement
+	 *     times=PROPERINT 'times' (ambiguity) 'end' (rule end)
+	 *     times=PROPERINT 'times' (ambiguity) body+=Statement
 	 */
 	protected void emit_RepeatStatement_LineFeedKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -409,8 +418,8 @@ public class RobotSyntacticSequencer extends AbstractSyntacticSequencer {
 	  *     '?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=EString 'runs' 'as' (ambiguity) 'end' (rule end)
-	 *     name=EString 'runs' 'as' (ambiguity) statements+=Statement
+	 *     name=NAME 'runs' 'as' (ambiguity) 'end' (rule end)
+	 *     name=NAME 'runs' 'as' (ambiguity) statements+=Statement
 	 */
 	protected void emit_Robot_LineFeedKeyword_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
