@@ -1,0 +1,129 @@
+
+
+class [%=Robot.name%] extends RobotFrame {
+
+	protected void perform() {
+		[%for (statement in Robot.statements) { %]
+		[%=statement.parse(0, 0)%]
+		[%}%]
+	}
+	
+	public static void main(String[] args) {
+		[%=Robot.name%] o = new [%=Robot.name%]();
+		o.initializeComponents();
+		o.run();
+	}	
+}
+[%
+operation Statement parse(rec : Integer, ind : Integer) : String {
+	var output = "";
+	var type = self.type.name;
+	var indent = "";
+	if (ind > 0) {
+		for (i in Sequence{1..ind}) {
+			indent += "\t";
+		}
+	}
+	if (type =="WhileStatement") {
+		var condition = self.cond.parse();
+		output += indent + "while(" + condition + ") {\n";
+		for (child in self.body) {
+			output += child.parse(rec, ind+1);
+		}
+		output += indent + "}\n";
+	} else if (type == "IfElseStatement") {
+		var condition = self.cond.parse();
+		output += indent + "if (" + condition + ") {\n";
+		for (child in self.ifbody) {
+			output += child.parse(rec, ind+1);
+		}
+		output += indent + "}";
+		//check for else
+		if (self.elsebody.size > 0) {
+			output += " else {\n";
+			for (child in self.elsebody) {
+				output += child.parse(rec, ind+1);
+			}
+			output += indent + "}\n";
+		} else {
+			output += indent + "\n";
+		}
+	} else if (type == "RepeatStatement") {
+		var rep = "";
+		for (i in Sequence{0..rec}) {
+			rep += "i";
+		}
+		output += indent + "for (int "+rep+" = 0; "+rep+" < "+self.times+"; "+rep+"++) {\n";
+		for (child in self.body) {
+			output += child.parse(rec+1, ind+1);
+		}
+		output += indent + "}\n";
+	} else if (type == "Comment") {
+		//ignore
+	} else if (type == "Trace") {
+		output += indent + "trace(\"" + self.text + "\");\n";	
+	} else if (type =="BuildWall") {
+		output += indent + "addWall(" + self.row + ", " + self.col + ");\n"
+				+ indent + "pause();\n";
+	} else if (type == "DropMark") {
+		output += indent + "addMark(" + self.row + ", " + self.col + ");\n"
+				+ indent + "pause();\n";
+	} else if (type == "step") {
+		output += indent + "moveRobot();\n"
+				+ indent +"minipause();\n";
+	} else if (type == "turnLeft") {
+		output += indent + "turnLeft();\n"
+				+ indent + "minipause();\n";
+	} else if (type == "drop") {
+		output += indent + "addMark();\n"
+				+ indent +"pause();\n";
+	} else if (type == "pick") {
+		output += indent + "removeMark();\n"
+				+ indent + "pause();\n";
+	}
+	return output;
+}	
+
+operation Expression parse() : String {
+	var output = "";
+	var operator = self.operator;
+	var operatorString = operator.toString();
+	var a = self.a;
+	
+	output += a.parse();
+	
+	if (not (operatorString == "None")) {
+		var b = self.b;
+		var operatorJava = "";
+		if (operatorString == "and") {
+			operatorJava = "&&";
+		} else if (operatorString == "or") {
+			operatorJava = "||";
+		}
+		output += " " + operatorJava + " " + b.parse();
+	}
+	return output;
+}
+
+operation Atomic parse() : String {
+	var type = self.type.name;
+	var output = "";
+
+	if (type == "Full") {
+		output += "isFull()";
+	} else if (type == "Mark") {
+		output += "isMark()";
+	} else if (type == "Ahead") {
+		output += "isWall()";
+	} else if (type == "Heading") {
+		var wind = "south";
+		if (self.hasProperty("wind")) {
+			wind = self.wind;
+		}
+		output += "heading(Direction."+ wind +")";
+	} else if (type == "Not") {
+		output += "!" + self.e.parse();
+	}
+	return output;
+}
+%]

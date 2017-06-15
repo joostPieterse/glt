@@ -1,0 +1,52 @@
+these scripts can be run using parse(#start[Robot], program to test) after importing one of the delivered rascal files and Prelude
+
+Script firstProgram runs as
+	while full do
+		# spin
+		repeat 4 times
+			turnLeft
+		end
+		if wall ahead do
+			trace "oh oh"
+		end
+		if heading south do
+			drop
+		else do
+			pick
+		end
+	end
+end
+
+Script secondProgram runs as
+	#sample program using extended commands
+	if mark and not full or heading south do
+		if wall ahead do
+			pick
+		else do
+			drop
+		end
+		repeat 5 times
+			step
+			while wall ahead do
+				turnLeft
+			end
+		end
+	end
+end
+
+Script thirdProgram runs as
+	#sample program using building commands
+	if mark and not full or heading south do
+		if wall ahead do
+			buildWall at row: 13 col: 25
+		else do
+			drop
+		end
+		repeat 5 times
+			step
+			while wall ahead do
+				dropMark at row: 24 col: 323
+			end
+		end
+	end
+end

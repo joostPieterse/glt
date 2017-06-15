@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simplerobot:Robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplerobot="simplerobot" name="secondProgram">
+  <statements xsi:type="simplerobot:Comment"/>
+  <statements xsi:type="simplerobot:IfElseStatement">
+    <cond operator="and">
+      <a xsi:type="simplerobot:Mark"/>
+      <b operator="or">
+        <a xsi:type="simplerobot:Not">
+          <e xsi:type="simplerobot:Full"/>
+        </a>
+        <b>
+          <a xsi:type="simplerobot:Heading"/>
+        </b>
+      </b>
+    </cond>
+    <ifbody xsi:type="simplerobot:IfElseStatement">
+      <cond>
+        <a xsi:type="simplerobot:Ahead"/>
+      </cond>
+      <ifbody xsi:type="simplerobot:Singleton" type="pick"/>
+      <elsebody xsi:type="simplerobot:Singleton" type="drop"/>
+    </ifbody>
+    <ifbody xsi:type="simplerobot:RepeatStatement" times="5">
+      <body xsi:type="simplerobot:Singleton"/>
+      <body xsi:type="simplerobot:WhileStatement">
+        <cond>
+          <a xsi:type="simplerobot:Ahead"/>
+        </cond>
+        <body xsi:type="simplerobot:Singleton" type="turnLeft"/>
+      </body>
+    </ifbody>
+  </statements>
+</simplerobot:Robot>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simplerobot:Robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplerobot="simplerobot" name="circles">
+  <statements xsi:type="simplerobot:WhileStatement">
+    <cond>
+      <a xsi:type="simplerobot:Not">
+        <e xsi:type="simplerobot:Heading"/>
+      </a>
+    </cond>
+    <body xsi:type="simplerobot:Singleton" type="turnLeft"/>
+  </statements>
+  <statements xsi:type="simplerobot:WhileStatement">
+    <cond>
+      <a xsi:type="simplerobot:Not">
+        <e xsi:type="simplerobot:Ahead"/>
+      </a>
+    </cond>
+    <body xsi:type="simplerobot:Singleton"/>
+  </statements>
+  <statements xsi:type="simplerobot:RepeatStatement" times="10">
+    <body xsi:type="simplerobot:Singleton" type="turnLeft"/>
+    <body xsi:type="simplerobot:RepeatStatement" times="2">
+      <body xsi:type="simplerobot:IfElseStatement">
+        <cond>
+          <a xsi:type="simplerobot:Not">
+            <e xsi:type="simplerobot:Ahead"/>
+          </a>
+        </cond>
+        <ifbody xsi:type="simplerobot:Singleton"/>
+      </body>
+    </body>
+    <body xsi:type="simplerobot:BuildWall" row="5" col="5"/>
+    <body xsi:type="simplerobot:DropMark" row="4" col="4"/>
+  </statements>
+</simplerobot:Robot>

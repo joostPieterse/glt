@@ -1,0 +1,13 @@
+rule robot2java
+	transform Robot : Robot {
+	
+	parameters {
+		var params : new Map;
+		params.put("name", Robot.name);
+		return params;
+	}
+	
+	template : "robot2Java.egl"
+	
+	target : "../outputModels/" + Robot.name + ".java"
+}
